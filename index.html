@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: rgb(194, 248, 194); /* Light blue background */
+        }
+        .header {
+            background-color: #2E7D32;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .navbar {
+            display: flex;
+            justify-content: center;
+            background-color: #2E7D32;
+            padding: 10px 0;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+        .navbar a:hover, .navbar a.active {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+        }
+
+        /* Unique styling for each section */
+        #home, #about, #info, #education, #contacts {
+            display: none; /* Initially hide all sections */
+        }
+
+        #home {
+            font-style: italic;
+        }
+        #about {
+            text-transform: uppercase;
+        }
+        #info {
+            font-weight: bold;
+        }
+        #education {
+            letter-spacing: 1px;
+        }
+        #contacts {
+            text-decoration: underline;
+        }
+        p {
+
+            font-size: 20px;
+        }
+
+        .section {
+            padding: 90px;
+            margin: 90px 20px;
+            height: 500px;
+
+        }
+
+        .content {
+            display: flex;
+            align-items: left;
+            justify-content: space-around;
+        }
+
+        .image-placeholder {
+            width: 500px;
+            height: 500px;
+            background-color: #B0BEC5;
+            border-radius: 20x;
+            box-shadow: 10px 10px 8px #2e2e2e;
+            position: absolute;
+            left: 10%;
+            
+        }
+
+        .text-content {
+            max-width: 500px;
+            background-color: #2E7D32;
+            margin: 10%;
+            padding: 3%;
+            border-radius: 10px;
+            position: absolute;
+            left: 40%;
+            top: 10%;
+        }
+        .contents{
+
+            max-width: 500px;
+            height: 1000px;
+            background-color:#2E7D32;
+            margin: 10%;
+            padding: 3%;
+            border-radius: 10px;
+            left: 80%;
+            top: 20%;
+            position: absolute;
+
+        }
+
+        .text-content h1 {
+            font-size: 28px;
+            font-weight: bold;
+           
+        }
+
+        .button {
+            display: inline-block;
+            background-color: #FF8A65;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            transition: 0.3s;
+        }
+
+        .button:hover {
+            background-color: #E57373;
+        }
+        .fonts{
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 20px;
+
+        }
+
+        .slider {
+    position: relative;
+    max-width: 600px; /* Set the width of the slider */
+    max-height: 400px;
+    margin: auto;
+    overflow: hidden; /* Hide overflow */
+    border-radius: 10%;
+    left: -30%;
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    animation: slide 12s infinite; /* Animation for sliding */
+
+   
+}
+
+.slide {
+    min-width: 100%; /* Each slide takes full width */
+    transition: opacity 1s ease-in-out;
+}
+
+img {
+    width: 100%; /* Make images responsive */
+    height: auto;
+    object-fit: contain;
+    display: block; /* Remove bottom space */
+}
+.contact_c{
+    max-width: 500px;
+            background-color: #2E7D32;
+            margin: 10%;
+            padding: 3%;
+            border-radius: 10px;
+            position: absolute;
+            left: 40%;
+            top: 20%;
+}
+.img_c
+{
+    width: 500px;
+    height: 400px;
+    background-color: #B0BEC5;
+    border-radius: 90%;
+    box-shadow: 10px 10px 8px #2e2e2e;
+    position: absolute;
+    left: 10%; 
+}
+.pdevs{
+ font-size: 15px;
+}
+.content_skill{
+    max-width: 500px;
+            background-color: #2E7D32;
+            margin: 10%;
+            padding: 3%;
+            border-radius: 10px;
+            position: absolute;
+            left: 5%;
+            top: 10%;
+
+}
+
+
+.content_skill2{
+    max-width: 500px;
+            background-color: #2E7D32;
+            margin: 10%;
+            padding: 3%;
+            border-radius: 10px;
+            position: absolute;
+            left: 50%;
+            top: 5%;
+
+}
+
+
+.image-thumbnail {
+            width:300px;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+            position: absolute;
+            left: 3%;
+            bottom: 13%;
+           flex-wrap: wrap;
+           
+        }
+        
+        .image-thumbnail2 {
+            width:300px;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+            position: absolute;
+            left: 20%;
+            bottom: 13%;
+           flex-wrap: wrap;
+           
+        }
+
+        .image-thumbnail3 {
+            width:300px;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+            position: absolute;
+            left: 40%;
+            bottom: 13%;
+           flex-wrap: wrap;
+           
+        }
+        
+        .image-thumbnail4{
+            width:300px;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+            position: absolute;
+            left: 60%;
+            bottom: 13%;
+           flex-wrap: wrap;
+           
+        }
+
+        .image-thumbnail5{
+            width:300px;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+            position: absolute;
+            left: 79%;
+            bottom: 13%;
+           flex-wrap: wrap;
+           
+        }
+
+        .image-thumbnail:hover {
+            transform: scale(1.1);
+        }
+        .image-thumbnail2:hover {
+            transform: scale(1.1);
+        }
+        .image-thumbnail3:hover {
+            transform: scale(1.1);
+        }
+        
+
+        .image-thumbnail4:hover {
+            transform: scale(1.1);
+        }
+
+        
+        .image-thumbnail5:hover {
+            transform: scale(1.1);
+        }
+        /* Popup Container (Initially Hidden) */
+        .popup-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        /* Popup Content (Image Display) */
+        .popup-content {
+            position: absolute;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+            max-width: 500px;
+            max-height: 90%;
+            left:10%;
+
+        }
+
+        .popup-image {
+            width: 100%;
+            height: 50%;
+            border-radius: 10px;
+        }
+
+        /* Close Button */
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 30px;
+            color: black;
+            cursor: pointer;
+        }
+@keyframes slide {
+    0% { transform: translateX(0); }
+    15% { transform: translateX(0); }
+    20% { transform: translateX(-100%); }
+    35% { transform: translateX(-100%); }
+    40% { transform: translateX(-200%); }
+    55% { transform: translateX(-200%); }
+    60% { transform: translateX(-300%); }
+    75% { transform: translateX(-300%); }
+    100% { transform: translateX(0); }
+}
+    </style>
+</head>
+<body>
+    <div class="header">MY PORTFOLIO</div>
+
+    <div class="navbar">
+        <a href="javascript:void(0);" onclick="showSection('home')" id="home-nav" class="active">Home</a>
+        <a href="javascript:void(0);" onclick="showSection('about')" id="about-nav">Dummy projects</a>
+        <a href="javascript:void(0);" onclick="showSection('info')" id="info-nav">skills</a>
+        <a href="javascript:void(0);" onclick="showSection('education')" id="education-nav">Educational Background</a>
+        <a href="javascript:void(0);" onclick="showSection('contacts')" id="contacts-nav">Contacts</a>
+    </div>
+
+    <!-- Home Section -->
+    <div id="home" class="section" style="background-color: #A5D6A7;">
+        <div class="content">
+            <div class="image-placeholder">
+                <img src="imagee.jpg" alt="Profile Picture" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">
+            </div>
+            <div class="text-content">
+                <h1>Welcome to My Portfolio</h1>
+                <p class="fonts">My name is Rennan M Sinsay</p>
+                <p class="fonts">location : general trias cavite</p>
+                <p class="fonts">Email :<u>rennansinsay76@gmail.com</u>
+                <p class="fonts"> phone contacts : 09674390945</p>
+
+                <h2>introduction</h2>
+                <p class="fonts"> Hi, I'm Rennan M. Sinsay!
+                    I'm a 23-year-old student at Cavite State University - CCAT Rosario, Cavite, pursuing a Bachelor of Science in Information Technology. My goal is to become a developer, with a strong focus on backend development. I'm passionate about building efficient and scalable systems and always eager to learn new technologies to improve my skills.</p>
+                </p>
+                
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <div id="about" class="section" style="background-color: #A5D6A7;">
+        <div class="content">
+
+            <h2>Click on the Image to See Popup and see the details</h2>
+
+
+    <!-- Small Image -->
+    <img src="Untitled-1.png" alt="Thumbnail" class="image-thumbnail" onclick="openPopup()">
+    <img src="puzzle.png" alt="Thumbnail" class="image-thumbnail2" onclick="openPopup2()">
+    <img src="4.png" alt="Thumbnail" class="image-thumbnail3" onclick="openPopup3()">
+    <img src="cursive.png" alt="Thumbnail" class="image-thumbnail4" onclick="openPopup4()">
+    <img src="palindrome.png" alt="Thumbnail" class="image-thumbnail5" onclick="openPopup5()">
+    <!-- Popup Container -->
+    <div class="popup-container" id="popupContainer">
+        <div class="popup-content">
+            <span class="close-btn" onclick="closePopup()">&times;</span>
+            <img src="Untitled-1.png" alt="Popup Image" class="popup-image">
+        </div>
+        <div class="text-content">
+            <h1> Photoshop</h1>
+            <p>Using photoshop , i draw a portrait of myself using pen tool.</p>
+        </div>
+    </div>
+
+    <div class="popup-container" id="popupContainer2">
+        <div class="popup-content">
+            <span class="close-btn" onclick="closePopup2()">&times;</span>
+            <img src="puzzle.png" alt="Popup Image" class="popup-image">
+        </div>
+        <div class="text-content">
+            <h1> HTML/CSS/JS</h1>
+            <p>Using HTML/CSS/js , i create a math puzzle before , the code is missing </p>
+        </div>
+    </div>
+
+    <div class="popup-container" id="popupContainer3">
+        <div class="popup-content">
+            <span class="close-btn" onclick="closePopup3()">&times;</span>
+            <img src="4.png" alt="Popup Image" class="popup-image">
+            <img src="3.png" alt="Popup Image" class="popup-image">
+            <img src="2.png" alt="Popup Image" class="popup-image">
+        </div>
+        <div class="text-content">
+            <h1>C++</h1>
+            <p>Using C++ , i create a simple apple store system</p>
+        </div>
+    </div>
+
+    <div class="popup-container" id="popupContainer4">
+        <div class="popup-content">
+            <span class="close-btn" onclick="closePopup4()">&times;</span>
+            <img src="cursive.png" alt="Popup Image" class="popup-image">  
+        </div>
+        <div class="text-content">
+            <h1>photoshop</h1>
+            <p>using photoshop , i write cursive alphabets using pen and anchor</p>
+        </div>
+    </div>
+
+    <div class="popup-container" id="popupContainer5">
+        <div class="popup-content">
+            <span class="close-btn" onclick="closePopup5()">&times;</span>
+            <img src="palindrome.png" alt="Popup Image" class="popup-image">  
+            <img src="palindrome2.png" alt="Popup Image" class="popup-image">  
+        </div>
+        <div class="text-content">
+            <h1>c++</h1>
+            <p>using c++ , i create a palindrome that determine if the 2 statements is same word when reversed</p>
+        </div>
+    </div>
+    
+            
+            
+        </div>
+    </div>
+
+    <!-- Info Section -->
+    <div id="info" class="section" style="background-color: #A5D6A7;">
+        <div class="content">
+            <div class="content_skill">
+                <h1>Skills</h1>
+                <h2>Web developments skill </h2>
+                <p class="pdevs">Proficient in creating simple, responsive websites using HTML, CSS, and JavaScript. Currently expanding my 
+                    skill set to include PHP for dynamic web applications. Passionate about building user-friendly interfaces and enhancing functionality through continuous learning..</p>
+                    <h2> Digital art skills</h2>
+                <p class="pdevs">Skilled in creating unique art styles using digital devices. Proficient in various digital art techniques, I bring creativity and imagination 
+                    to life through illustrations and designs. Committed to exploring new styles and enhancing my artistic abilities.</p>
+            </div>
+
+            <div class="content_skill2">
+                <h1>Skills</h1>
+                <h2>programming skills </h2>
+                <p class="pdevs">Programming Skills:
+                    Proficient in intermediate-level coding with experience in C++, Java, and Python. Skilled in problem-solving, software development, and writing efficient, maintainable code.</p>
+                    <h2> photoshop skills</h2>
+                <p class="pdevs">Capable of basic photo editing, retouching, and simple graphic design. Able to adjust colors, remove backgrounds, enhance images, and create straightforward visual compositions.</p>
+                <p class="pdevs">Programming Skills:
+                    Proficient in intermediate-level coding with experience in C++, Java, and Python. Skilled in problem-solving, software development, and writing efficient, maintainable code.</p>
+                    <h2> microsoft office Skills</h2>
+                <p class="pdevs">Proficient in Microsoft Word, Excel, Access, and PowerPoint. Skilled in document formatting, data organization, database management, and creating engaging presentations</p>
+           
+            </div>
+        </div>
+    </div>
+
+    <!-- Educational Background Section -->
+    <div id="education" class="section" style="background-color: #A5D6A7;">
+        <div class="content">
+            <div class="slider">
+                <div class="slides">
+                    <div class="slide fade">
+                        <img src="image4.jpg" alt="Image 1">
+                    </div>
+                    <div class="slide fade">
+                        <img src="unnamed.webp" alt="Image 2">
+                    </div>
+                    <div class="slide fade">
+                        <img src="imageschool1.webp" alt="Image 3">
+                    </div>
+                    <div class="slide fade">
+                        <img src="cvsu.webp" alt="Image 4">
+                    </div>
+                </div>
+            </div>
+             <div class="text-content">
+                <h1>Educational Background</h1>
+                <h2> Primary</h2>
+                <p>Pasong kawayan 2 general Trias Cavite 
+                </p> 
+                <h2>Secondary</h2>
+                 <p>governor ferrer memorial national high school<p>
+                 <p>luis y ferrer jr. senior high school</p>
+                 <h2>College</h2>
+                 <p> cavite state university CCAT campus</p>
+        </div>
+        
+
+    </div>
+</div>
+           
+
+    <!-- Contacts Section -->
+    <div id="contacts" class="section" style="background-color: #A5D6A7;">
+        <div class="content">
+            <div class="img_c">
+                <img src="gg.jpg" alt="Contact Image" style="width: 100%; height: 100%; object-fit: cover; border-radius: 90%; position: absolute; left: 10%;">
+            </div>
+            <div class="contact_c">
+                <h1>Contact Information</h1>
+                <p>fB-Email : <a href="https://www.facebook.com/rennansay.73" > https://www.facebook.com/rennan.sinsay.73</a></p>
+                <p>Contact : 09674390945</p>
+                <p>G-mail : rennansinsay76@gmail.com</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Function to show the selected section and hide others
+        function showSection(section) {
+            // Hide all sections
+            document.getElementById('home').style.display = 'none';
+            document.getElementById('about').style.display = 'none';
+            document.getElementById('info').style.display = 'none';
+            document.getElementById('education').style.display = 'none';
+            document.getElementById('contacts').style.display = 'none';
+
+            // Remove active class from all navbar links
+            document.getElementById('home-nav').classList.remove('active');
+            document.getElementById('about-nav').classList.remove('active');
+            document.getElementById('info-nav').classList.remove('active');
+            document.getElementById('education-nav').classList.remove('active');
+            document.getElementById('contacts-nav').classList.remove('active');
+
+            // Show the selected section
+            document.getElementById(section).style.display = 'block';
+
+            // Add active class to the clicked navbar link
+            document.getElementById(section + '-nav').classList.add('active');
+
+
+        }
+
+        function openPopup() {
+            document.getElementById("popupContainer").style.visibility = "visible";
+            document.getElementById("popupContainer").style.opacity = "1";
+          
+        }
+
+        function openPopup2() {
+           
+            document.getElementById("popupContainer2").style.visibility = "visible";
+            document.getElementById("popupContainer2").style.opacity = "1";
+        }
+        function closePopup2() {
+         
+            document.getElementById("popupContainer2").style.visibility = "hidden";
+            document.getElementById("popupContainer2").style.opacity = "0";
+        }
+
+        function closePopup() {
+            document.getElementById("popupContainer").style.visibility = "hidden";
+            document.getElementById("popupContainer").style.opacity = "0";
+        }
+        function openPopup3() {
+           
+           document.getElementById("popupContainer3").style.visibility = "visible";
+           document.getElementById("popupContainer3").style.opacity = "1";
+       }
+       function closePopup3() {
+        
+           document.getElementById("popupContainer3").style.visibility = "hidden";
+           document.getElementById("popupContainer3").style.opacity = "0";
+       }
+       function openPopup4() {
+           
+           document.getElementById("popupContainer4").style.visibility = "visible";
+           document.getElementById("popupContainer4").style.opacity = "1";
+       }
+       function closePopup4() {
+        
+           document.getElementById("popupContainer4").style.visibility = "hidden";
+           document.getElementById("popupContainer4").style.opacity = "0";
+       }
+       function openPopup5() {
+           
+           document.getElementById("popupContainer5").style.visibility = "visible";
+           document.getElementById("popupContainer5").style.opacity = "1";
+       }
+       function closePopup5() {
+        
+           document.getElementById("popupContainer5").style.visibility = "hidden";
+           document.getElementById("popupContainer5").style.opacity = "0";
+       }
+
+
+        // Show the Home section by default on page load
+        window.onload = function() {
+            showSection('home');
+        };
+    </script>
+</body>
+</html>

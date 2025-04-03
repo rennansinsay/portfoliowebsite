@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiple Image Popups</title>
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        /* Thumbnail Container */
+        .gallery {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        /* Thumbnails */
+        .thumbnail {
+            width: 150px;
+            height: 150px;
+            cursor: pointer;
+            border-radius: 10px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .thumbnail:hover {
+            transform: scale(1.1);
+        }
+
+        /* Popup Background */
+        .popup-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            z-index: 9999;
+        }
+
+        /* Popup Image Content */
+        .popup-content {
+            position: relative;
+            background: white;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+            max-width: 90%;
+            max-height: 90%;
+        }
+
+        .popup-image {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        /* Close Button */
+        .close-btn {
+            position: absolute;
+            top: 5px;
+            right: 10px;
+            font-size: 30px;
+            color: black;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Click on an Image to View in Fullscreen</h2>
+
+    <!-- Thumbnails Gallery -->
+    <div class="gallery">
+        <img src="image1.jpg" alt="Thumbnail 1" class="thumbnail" onclick="openPopup('popup1')">
+        <img src="image2.jpg" alt="Thumbnail 2" class="thumbnail" onclick="openPopup('popup2')">
+        <img src="image3.jpg" alt="Thumbnail 3" class="thumbnail" onclick="openPopup('popup3')">
+        <img src="image4.jpg" alt="Thumbnail 4" class="thumbnail" onclick="openPopup('popup4')">
+    </div>
+
+    <!-- Popups (One for Each Image) -->
+    <div class="popup-container" id="popup1">
+        <div class="popup-content">
+            <span class="close-btn" onclick="closePopup('popup1')">&times;</span>
+            <img src="image1.jpg" alt="Full Image 1" class="popup-image">
+        </div>
+    </div>
+
+    <div class="popup-container" id="popup2">
+        <div class="popup-content">
+            <span class="close-btn" onclick="closePopup('popup2')">&times;</span>
+            <img src="image2.jpg" alt="Full Image 2" class="popup-image">
+        </div>
+    </div>
+
+    <div class="popup-container" id="popup3">
+        <div class="popup-content">
+            <span class="close-btn" onclick="closePopup('popup3')">&times;</span>
+            <img src="image3.jpg" alt="Full Image 3" class="popup-image">
+        </div>
+    </div>
+
+    <div class="popup-container" id="popup4">
+        <div class="popup-content">
+            <span class="close-btn" onclick="closePopup('popup4')">&times;</span>
+            <img src="image4.jpg" alt="Full Image 4" class="popup-image">
+        </div>
+    </div>
+
+    <script>
+        function openPopup(id) {
+            document.getElementById(id).style.visibility = "visible";
+            document.getElementById(id).style.opacity = "1";
+        }
+
+        function closePopup(id) {
+            document.getElementById(id).style.visibility = "hidden";
+            document.getElementById(id).style.opacity = "0";
+        }
+    </script>
+
+</body>
+</html>
